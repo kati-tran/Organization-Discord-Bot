@@ -1,8 +1,11 @@
 {
-	“name”: “Redirect-Links”,
-	“version”: “1.0.0”,
-	“description”: “Bot to redirect links to specific channels”,
-	“main”: “bot.js”,
-	“author”: “Kati Tran”,
-	“dependencies”: {}
+	"name": "Redirect-Links",
+	"version": "1.0.0",
+	"description": "Bot to redirect links to specific channels",
+	"main": "bot.js",
+	"author": "Kati Tran",
+	"dependencies": {
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"winston": "^3.2.1"
+	}
 }
