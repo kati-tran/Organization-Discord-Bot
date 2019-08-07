@@ -1,0 +1,8 @@
+{
+	“name”: “Redirect-Links”,
+	“version”: “1.0.0”,
+	“description”: “Bot to redirect links to specific channels”,
+	“main”: “bot.js”,
+	“author”: “Kati Tran”,
+	“dependencies”: {}
+}
