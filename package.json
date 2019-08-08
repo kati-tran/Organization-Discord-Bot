@@ -2,7 +2,7 @@
   "name": "RedirectLinkDiscordBot",
   "version": "1.0.0",
   "description": "Bot that puts all links in channels into a designated channel for easy access",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bot.js"
