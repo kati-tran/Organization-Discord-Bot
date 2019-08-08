@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jigglequack/RedirectLinkDiscordBot.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "jigglequack",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jigglequack/RedirectLinkDiscordBot/issues"
