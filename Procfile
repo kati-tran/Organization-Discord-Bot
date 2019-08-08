@@ -1,1 +1,1 @@
-worker: node RedirectLinkDiscordBot/bot.js
+worker: node bot.js
