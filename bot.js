@@ -15,8 +15,8 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 
-  if (msg.content.includes('http') && msg.author != client.user && !msg.content.includes('!dontadd')) {
-    client.channels.get('563202381202849832').send(msg.content);
+  if (msg.content.includes('http') && msg.author != client.user && !msg.content.includes('!da')) {
+    client.channels.get('563202381202849832').send(msg.author + " linked: " + msg.content);
 
   }
 
