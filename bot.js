@@ -12,10 +12,12 @@ client.on('ready', () => {
 
 });
 
+var blockedchannels = ['587909626087866390']
 
 client.on('message', msg => {
 
-  if (msg.content.includes('http') && msg.author != client.user && !msg.content.includes('!da')) {
+  if (msg.content.includes('http') && msg.author != client.user 
+    && !msg.content.includes('!da') && !client.channels.includes(blockedchannels)) {
     client.channels.get('563202381202849832').send(msg.author + " linked: " + msg.content);
 
   }
