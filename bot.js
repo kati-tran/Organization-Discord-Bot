@@ -29,3 +29,10 @@ client.on('message', msg => {
 
 //client.login(auth.token);
 client.login(process.env.BOT_TOKEN);
+
+
+//heroku sleep prevention
+var http = require("http");
+setInterval(function() {
+    http.get("http://covenantdiscordlinkbot.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
