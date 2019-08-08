@@ -4,25 +4,17 @@
   "description": "Bot that puts all links in channels into a designated channel for easy access",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+
     "start": "node bot.js"
+
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jigglequack/RedirectLinkDiscordBot.git"
-  },
-  "keywords": [
-    "heroku",
-    "discord.js"
-  ],
-  "author": "jigglequack",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jigglequack/RedirectLinkDiscordBot/issues"
-  },
-  "homepage": "https://github.com/jigglequack/RedirectLinkDiscordBot#readme",
+
   "dependencies": {
-    "discord.js": "^11.5.1",
+
+    "discord.js": "11.1.0",
+
     "request": "2.81.0"
+
   }
+
 }
