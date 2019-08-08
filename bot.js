@@ -24,4 +24,4 @@ client.on('message', msg => {
 
 
 //client.login(auth.token);
-client.run(str(os.environ.get('BOT_TOKEN')))
+client.login(process.env.BOT_TOKEN);
