@@ -16,7 +16,7 @@ client.on('ready', () => {
 client.on('message', msg => {
 
   if (msg.content.includes('https:') && msg.author != client.user) {
-    client.channels.get('563202381202849832').send(msg.content);
+    client.channels.get('YOUR-WANTED-LINK-CHANNEL-ID-HERE').send(msg.content);
 
   }
 
