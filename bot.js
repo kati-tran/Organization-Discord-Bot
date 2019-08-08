@@ -1,27 +1,26 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-var auth = require('./auth.json');
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(new logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
-// Initialize Discord Bot
-var bot = new Discord.Client({
-   token: auth.token,
-   autorun: true
-});
-bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+const Discord = require('discord.js');
+
+const client = new Discord.Client();
+
+const auth = require('./auth.json');
+
+
+
+client.on('ready', () => {
+
+    console.log(`Logged in as ${client.user.tag}!`);
+
 });
 
-bot.on('message', function (user, userID, channelID, message, evt) {
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
-    if (message.substring().includes('https:')) {
-            bot.chanels.get('563202381202849832').send(message.substring());
-         };
+
+client.on('message', msg => {
+
+  if (msg.content.includes('https:') && msg.author != client.user) {
+    client.channels.get('563202381202849832').send(msg.content);
+
+  }
+
 });
+
+
+client.login(auth.token);

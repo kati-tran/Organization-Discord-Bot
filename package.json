@@ -1,11 +1,23 @@
 {
-	"name": "Redirect-Links",
-	"version": "1.0.0",
-	"description": "Bot to redirect links to specific channels",
-	"main": "bot.js",
-	"author": "Kati Tran",
-	"dependencies": {
-		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-		"winston": "^3.2.1"
-	}
+  "name": "RedirectLinkDiscordBot",
+  "version": "1.0.0",
+  "description": "Bot that puts all links in channels into a designated channel for easy access",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jigglequack/RedirectLinkDiscordBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jigglequack/RedirectLinkDiscordBot/issues"
+  },
+  "homepage": "https://github.com/jigglequack/RedirectLinkDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
 }
