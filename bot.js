@@ -27,14 +27,12 @@ client.on('message', msg => {
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
-  	// msg.channel.messages.fetch({limit: 10}).then(collected =>{
-  	// 	collected.forEach(mesg=>{
-  	// 		if(mesg.content == delete_message){
-  	// 			mesg.delete();
-  	// 		}
-  	// 	})
-  	// })
-  }
+  	msg.channel.fetchMessages({limit: 10}).then(collected =>{
+  		collected.each(mesg => {
+  			if (mesg.content == delete_message) mesg.delete();
+  		})
+  	  })
+  	}
 
 });
 
