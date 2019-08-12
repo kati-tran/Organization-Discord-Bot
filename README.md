@@ -1,2 +1,5 @@
 # RedirectLinkDiscordBot
-Simple bot that puts all links in channels into a designated channel for easy access. Mainly used for my team's discord, but could be easily edited to be used elsewhere.
+Bot that's mainly used in team Covenant's discord server for organization
+Currently contains:
+  -Redirect links to appropriate channel so we stop losing important references in the piles of messages and links
+  -Clean method that helps to remove spam
