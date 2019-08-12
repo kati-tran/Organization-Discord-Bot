@@ -1,5 +1,5 @@
 {
-  "name": "Covenant Bot",
+  "name": "Covenant-Discord-Bot",
   "version": "1.0.0",
   "description": "Bot that's mainly used in team Covenant's discord server for organization",
   "main": "bot.js",
