@@ -25,7 +25,7 @@ client.on('message', msg => {
   if (msg.content.split(' ')[0] == '!purge'){
   	const channel = msg.guild.channels.find(ch => ch.name === 'bots');
   	if(!channel) return;
-  	channel.send("Cleaning up messages " + msg.content.substr(msg.content.indexOf(" ")+2));
+  	channel.send("Cleaning up messages " + msg.content.substr(msg.content.indexOf(" ")+1));
   }
 
 });
