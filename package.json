@@ -4,17 +4,10 @@
   "description": "Bot that's mainly used in team Covenant's discord server for organization",
   "main": "bot.js",
   "scripts": {
-
     "start": "node bot.js"
-
   },
-
   "dependencies": {
-
-    "discord.js": "11.1.0",
-
+    "discord.js": "^11.5.1",
     "request": "2.81.0"
-
   }
-
 }
