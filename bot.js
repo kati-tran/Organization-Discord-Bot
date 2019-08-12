@@ -29,7 +29,7 @@ client.on('message', msg => {
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
   	msg.channel.fetchMessages({limit: 10}).then(collected =>{
   		collected.each(mesg => {
-  			if (mesg.content == delete_message) mesg.delete();
+  			if (mesg.content === delete_message) mesg.delete();
   		})
   	  })
   	}
