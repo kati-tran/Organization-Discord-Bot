@@ -22,7 +22,7 @@ client.on('message', msg => {
     && !blockedchannels.includes(msg.channel.id)) {
     client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
-  if msg.content.split(' ')[0] == '!clean'{
+  if (msg.content.split(' ')[0] == '!clean'){
   	const channel = msg.guild.channels.find(ch => ch.name === 'bots');
   	if(!channel) return;
   	channel.send("Cleaning up messages " + msg.content[6:]);
