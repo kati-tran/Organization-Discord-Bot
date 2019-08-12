@@ -24,8 +24,16 @@ client.on('message', msg => {
 
   if (msg.content.split(' ')[0] == '!purge'){
   	const channel = msg.guild.channels.find(ch => ch.name === 'bots');
-  	if(!channel) return;
-  	channel.send("**Cleaning up messages:** " + msg.content.substr(msg.content.indexOf(" ")+1));
+  	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
+  	//if(!channel) return;
+  	channel.send("**Cleaning up messages:** " + delete_message);
+  	channel.fetchMessages({limit: 10}).then(collected =>{
+  		collected.forEach(mesg=>{
+  			if(mesg.content == delete_message){
+  				mesg.delete();
+  			}
+  		})
+  	})
   }
 
 });
