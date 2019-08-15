@@ -35,18 +35,18 @@ client.on('message', msg => {
   	  })
   	}
 
-  	var saved = "";
+  	var saved;
   	if (msg.content.split(' ')[0] == '!quote'){
   		saved = msg.content.substr(msg.content.indexOf(" ")+1);
   		bot_channel.send("**Current saved message:** " + saved);
   	}
 
   	if(msg.content === '!qs'){
-  		if (saved === ""){
-  			bot_channel.send("**No saved message**");
+  		if (saved){
+  			msg.channel.send(saved);
   		}
   		else{
-  			msg.channel.send(saved);
+  			bot_channel.send("**No saved message**");
   		}
   	}
 
