@@ -17,13 +17,14 @@ var blockedcommands = ['!da', 'gif']
 
 client.on('message', msg => {
 
+  const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
+
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
     && !blockedchannels.includes(msg.channel.id)) {
     client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
   if (msg.content.split(' ')[0] == '!purge'){
-  	const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
@@ -32,6 +33,21 @@ client.on('message', msg => {
   			if (mesg.content === delete_message) mesg.delete();
   		})
   	  })
+  	}
+
+  	var saved = "";
+  	if (msg.content.split(' ')[0] == '!quote'){
+  		saved = msg.content.substr(msg.content.indexOf(" ")+1);
+  		bot_channel.send("**Current saved message:** " + saved);
+  	}
+
+  	if(msg.content === '!qs'){
+  		if (saved === ""){
+  			bot_channel.send("**No saved message**");
+  		}
+  		else{
+  			msg.channel.send(saved);
+  		}
   	}
 
 });
