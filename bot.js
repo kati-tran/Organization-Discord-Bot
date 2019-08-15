@@ -38,7 +38,8 @@ client.on('message', msg => {
 
   	if (msg.content.split(' ')[0] == '!quote'){
   		saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
-  		bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved);
+  		
+  		bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved_quotes[msg.author.username]);
   	}
 
   	if(msg.content === '!qs'){
