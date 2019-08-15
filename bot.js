@@ -35,7 +35,7 @@ client.on('message', msg => {
   	  })
   	}
 
-  	var saved = '';
+  	saved = '';
   	if (msg.content.split(' ')[0] == '!quote'){
   		saved = msg.content.substr(msg.content.indexOf(" ")+1);
   		bot_channel.send("**Current saved message:** " + saved);
@@ -44,7 +44,6 @@ client.on('message', msg => {
   	if(msg.content === '!qs'){
   		if (!saved){
   			bot_channel.send("**No saved message**");
-  			
   		}
   		else{
   			msg.channel.send(saved);
