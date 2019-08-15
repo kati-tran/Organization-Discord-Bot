@@ -14,7 +14,7 @@ client.on('ready', () => {
 
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
-var saved = '';
+var saved_quotes = {};
 
 client.on('message', msg => {
 
@@ -37,16 +37,16 @@ client.on('message', msg => {
   	}
 
   	if (msg.content.split(' ')[0] == '!quote'){
-  		saved = msg.content.substr(msg.content.indexOf(" ")+1);
-  		bot_channel.send("**Current saved message:** " + saved);
+  		saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
+  		bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved);
   	}
 
   	if(msg.content === '!qs'){
-  		if (!saved){
-  			bot_channel.send("**No saved message**");
+  		if (msg.author.username in saved_quotes){
+  			msg.channel.send(saved_quotes[msg.author.username]);
   		}
   		else{
-  			msg.channel.send(saved);
+  			bot_channel.send("**No saved message**");
   		}
   	}
 
