@@ -14,6 +14,7 @@ client.on('ready', () => {
 
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
+var saved = '';
 
 client.on('message', msg => {
 
@@ -35,7 +36,6 @@ client.on('message', msg => {
   	  })
   	}
 
-  	saved = '';
   	if (msg.content.split(' ')[0] == '!quote'){
   		saved = msg.content.substr(msg.content.indexOf(" ")+1);
   		bot_channel.send("**Current saved message:** " + saved);
