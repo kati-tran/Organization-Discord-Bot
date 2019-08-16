@@ -27,7 +27,7 @@ client.on('message', msg => {
     && !blockedchannels.includes(msg.channel.id)) {
     client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
-  if (first_word == '!purge') && (valid_command > 1){
+  if (first_word == '!purge' && valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
@@ -38,10 +38,17 @@ client.on('message', msg => {
   	  })
   	}
 
-  	if (first_word == '!quote') && (valid_command > 1){
-  		saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
-  		
-  		bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved_quotes[msg.author.username]);
+  	if (first_word == '!quote'){
+  		if (valid_command > 1){
+  			saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
+  			bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved_quotes[msg.author.username]);
+  		}
+  		else
+  		{
+  			bot_channel.send("**Please input a phrase to be saved. Example:** !quote Hello World!");
+  		}
+
+
   	}
 
   	if(msg.content === '!qs'){
