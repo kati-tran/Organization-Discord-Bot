@@ -41,7 +41,7 @@ client.on('message', msg => {
   	if (first_word == '!quote'){
   		if (valid_command > 1){
   			saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
-  			bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved_quotes[msg.author.username]);
+  			bot_channel.send("**"+msg.author.username + " saved message:** " + saved_quotes[msg.author.username]);
   		}
   		else
   		{
