@@ -19,13 +19,15 @@ var saved_quotes = {};
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
+  const valid_command = msg.content.split(' ').length;
+  const first_word = msg.content.split(' ')[0]
 
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
     && !blockedchannels.includes(msg.channel.id)) {
     client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
-  if (msg.content.split(' ')[0] == '!purge'){
+  if (first_word == '!purge') && (valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
@@ -36,7 +38,7 @@ client.on('message', msg => {
   	  })
   	}
 
-  	if (msg.content.split(' ')[0] == '!quote'){
+  	if (first_word == '!quote') && (valid_command > 1){
   		saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
   		
   		bot_channel.send("**"+msg.author.username+"**" + "** saved message:** " + saved_quotes[msg.author.username]);
