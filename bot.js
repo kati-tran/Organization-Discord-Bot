@@ -2,8 +2,12 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-//const auth = require('./auth.json');
+const fs = require('fs')
 
+//const auth = require('./auth.json');
+var userPath = './user_data.json'
+var userRead = fs.readFileSync(userPath);
+var userFile = JSON.parse(userRead);
 
 
 client.on('ready', () => {
@@ -14,7 +18,7 @@ client.on('ready', () => {
 
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
-var saved_quotes = {};
+//var saved_quotes = {};
 
 client.on('message', msg => {
 
@@ -40,25 +44,23 @@ client.on('message', msg => {
 
   	if (first_word == '!quote'){
   		if (valid_command > 1){
-  			saved_quotes[msg.author.username] = msg.content.substr(msg.content.indexOf(" ")+1);
-  			bot_channel.send("**"+msg.author.username + " saved message:** " + saved_quotes[msg.author.username]);
+  			userFile[msg.author.username] = {"quote": msg.content.substr(msg.content.indexOf(" ")+1)};
+  			bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username]["quote"]);
   		}
   		else
   		{
   			bot_channel.send("**Please input a phrase to be saved. Example:** !quote Hello World!");
   		}
-
-
   	}
 
-  	if(msg.content === '!qs'){
-  		if (msg.author.username in saved_quotes){
-  			msg.channel.send(saved_quotes[msg.author.username]);
-  		}
-  		else{
-  			bot_channel.send("**No saved message**");
-  		}
-  	}
+    if(msg.content === '!qs'){
+      if (!userFile[msg.author.username] || userFile[msg.author.username]["quote"] == ""){
+        bot_channel.send("**No saved message**");
+      }
+      else{
+        msg.channel.send(userFile[msg.author.username]["quote"]);
+      }
+    }
 
 });
 
