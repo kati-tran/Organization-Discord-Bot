@@ -5,24 +5,14 @@ const client = new Discord.Client();
 const fs = require('fs')
 
 //const auth = require('./auth.json');
-<<<<<<< HEAD
-<<<<<<< HEAD
 //var config = require('./user_data.json')
 //var userRead = fs.readFileSync(userPath);
 //var userFile = JSON.parse(userRead);
 
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./quote.sqlite');
-=======
 var userPath = './user_data.json'
 var userRead = fs.readFileSync(userPath);
 var userFile = JSON.parse(userRead);
->>>>>>> parent of 9ee63ba... oh boy
-=======
-var userPath = './user_data.json'
-var userRead = fs.readFileSync(userPath);
-var userFile = JSON.parse(userRead);
->>>>>>> parent of 9ee63ba... oh boy
+
 
 
 client.on('ready', () => {
@@ -57,56 +47,26 @@ client.on('message', msg => {
   	  })
   	}
 
-  	if (first_word == '!quote'){
-  		if (valid_command > 1){
-<<<<<<< HEAD
-<<<<<<< HEAD
-        quotes = client.getQuote.get(msg.author.id);
-        if(!quotes){
-          quotes = {id: '&{msg.author.id}', user: msg.author.id, phrase: msg.content.substr(msg.content.indexOf(" ")+1)}         
-        }
-        quotes.phrase = msg.content.substr(msg.content.indexOf(" ")+1)
-  			//fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        bot_channel.send("**"+msg.author.username + " saved message:** " + quotes.phrase);
-  		  client.setQuote.run(quotes);
+    if (first_word == '!quote'){
+      if (valid_command > 1){
+    
+        userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
+        fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
+
+        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile.quote);
       }
-=======
-=======
->>>>>>> parent of 9ee63ba... oh boy
-  			userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
-  			fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
-  		}
-<<<<<<< HEAD
->>>>>>> parent of 9ee63ba... oh boy
-=======
->>>>>>> parent of 9ee63ba... oh boy
-  		else
-  		{
-  			bot_channel.send("**Please input a phrase to be saved. Example:** !quote Hello World!");
-  		}
-  	}
+      else
+      {
+        bot_channel.send("**Please input a phrase to be saved. Example:** !quote Hello World!");
+      }
+    }
 
     if(msg.content === '!qs'){
-<<<<<<< HEAD
-<<<<<<< HEAD
-      if (!quotes || quotes.phrase == ""){
-        bot_channel.send("**No saved message**");
-      }
-      else{
-        msg.channel.send(quotes.phrase);
-=======
-=======
->>>>>>> parent of 9ee63ba... oh boy
       if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
       }
       else{
         msg.channel.send(userFile[msg.author.username].quote);
-<<<<<<< HEAD
->>>>>>> parent of 9ee63ba... oh boy
-=======
->>>>>>> parent of 9ee63ba... oh boy
         msg.delete();
       }
     }
