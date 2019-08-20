@@ -44,9 +44,9 @@ client.on('message', msg => {
 
   	if (first_word == '!quote'){
   		if (valid_command > 1){
-  			userFile[msg.author.username] = {"quote": msg.content.substr(msg.content.indexOf(" ")+1)};
+  			userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
   			fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username]["quote"]);
+        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile.quote);
   		}
   		else
   		{
@@ -55,11 +55,11 @@ client.on('message', msg => {
   	}
 
     if(msg.content === '!qs'){
-      if (!userFile[msg.author.username] || userFile[msg.author.username]["quote"] == ""){
+      if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
       }
       else{
-        msg.channel.send(userFile[msg.author.username]["quote"]);
+        msg.channel.send(userFile[msg.author.username].quote);
         msg.delete();
       }
     }
