@@ -68,7 +68,7 @@ client.on('message', msg => {
         }
         quotes.phrase = msg.content.substr(msg.content.indexOf(" ")+1)
   			//fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        bot_channel.send("**"+msg.author.username + " saved message:** " + ${quotes.phrase});
+        bot_channel.send("**"+msg.author.username + " saved message:** " + quotes.phrase);
   		  client.setQuote.run(quotes);
       }
   		else
@@ -78,11 +78,11 @@ client.on('message', msg => {
   	}
 
     if(msg.content === '!qs'){
-      if (!quotes || ${quotes.phrase} == ""){
+      if (!quotes || quotes.phrase == ""){
         bot_channel.send("**No saved message**");
       }
       else{
-        msg.channel.send(${quotes.phrase});
+        msg.channel.send(quotes.phrase);
         msg.delete();
       }
     }
