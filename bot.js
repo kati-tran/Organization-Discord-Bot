@@ -10,7 +10,7 @@ const client = new Discord.Client();
 //var userFile = JSON.parse(userRead);
 
 const SQLite = require("better-sqlite3");
-const sql = new SQLite('./quotes.sqlite');
+const sql = new SQLite('./quote.sqlite');
 
 
 client.on('ready', () => {
