@@ -45,7 +45,8 @@ client.on('message', msg => {
   	if (first_word == '!quote'){
   		if (valid_command > 1){
   			userFile[msg.author.username] = {"quote": msg.content.substr(msg.content.indexOf(" ")+1)};
-  			bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username]["quote"]);
+  			fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
+        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username]["quote"]);
   		}
   		else
   		{
