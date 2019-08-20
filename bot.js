@@ -59,6 +59,7 @@ client.on('message', msg => {
       }
       else{
         msg.channel.send(userFile[msg.author.username]["quote"]);
+        msg.delete();
       }
     }
 
