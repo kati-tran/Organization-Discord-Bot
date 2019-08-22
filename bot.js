@@ -40,7 +40,7 @@ client.on('message', msg => {
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	bot_channel.send("**Cleaning up messages:** " + delete_message);
-  	msg.channel.fetchMessages({limit: 10}).then(collected =>{
+  	channel.fetchMessages({limit: 10}).then(collected =>{
   		collected.each(mesg => {
   			if (mesg.content === delete_message) mesg.delete();
   		})
@@ -51,8 +51,10 @@ client.on('message', msg => {
       if (valid_command > 1){
     
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
+        console.log(userFile[msg.author.username]);
         fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-
+        fs.writeFile(userPath, JSON.stringify(userFile, null, 2), 'utf8', callback);
+       
         bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
       }
       else
