@@ -53,7 +53,7 @@ client.on('message', msg => {
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
         console.log(userFile[msg.author.username]);
         fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        fs.writeFile(userPath, JSON.stringify(userFile, null, 2));
+        fs.writeFile(userPath, JSON.stringify(userFile));
        
         bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
       }
