@@ -54,12 +54,12 @@ client.on('message', msg => {
         console.log(userFile[msg.author.username]);
         fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
         fs.writeFile('/tmp/phraseFreqs.json', JSON.stringify(userFile), 'utf8', function (err) {
-              if (err) {
-                  return console.log(err);
-              }
+            if (err) {
+                return console.log(err);
+            }
 
-              console.log("The file was saved!");
-          }); 
+            console.log("The file was saved!");
+        }); 
        
         bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
       }
