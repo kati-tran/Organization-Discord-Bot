@@ -69,7 +69,6 @@ client.on('message', msg => {
       }
     }
 
-
     if(msg.content === '!qs'){
       if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
