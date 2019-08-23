@@ -53,7 +53,7 @@ client.on('message', msg => {
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
         console.log(userFile[msg.author.username]);
         fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        fs.writeFile(userRead, JSON.stringify(userFile), 'utf8', function (err) {
+        fs.writeFile(userPath, JSON.stringify(userFile), 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -69,7 +69,7 @@ client.on('message', msg => {
       }
     }
 
-    
+
     if(msg.content === '!qs'){
       if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
