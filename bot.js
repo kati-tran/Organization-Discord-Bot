@@ -53,7 +53,7 @@ client.on('message', msg => {
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
         console.log(userFile[msg.author.username]);
         fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        fs.writeFile('/tmp/phraseFreqs.json', JSON.stringify(userFile), 'utf8', function (err) {
+        fs.writeFile('/user_data.json', JSON.stringify(userFile), 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }
