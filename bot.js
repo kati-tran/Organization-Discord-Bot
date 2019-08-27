@@ -68,7 +68,7 @@ client.on('message', msg => {
         bot_channel.send("**Please input a phrase to be saved. Example:** !quote Hello World!");
       }
     }
-
+ 
     if(msg.content === '!qs'){
       if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
