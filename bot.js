@@ -10,8 +10,6 @@ const fs = require('fs')
 //var userFile = JSON.parse(userRead);
 
 var userPath = './user_data.json'
-var userRead = fs.readFileSync(userPath);
-var userFile = JSON.parse(userRead);
 
 
 
@@ -46,9 +44,11 @@ client.on('message', msg => {
   		})
   	  })
   	}
-
+  	var userRead = fs.readFileSync(userPath);
+	var userFile = JSON.parse(userRead);
     if (first_word == '!quote'){
       if (valid_command > 1){
+
     
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
         console.log(userFile[msg.author.username]);
