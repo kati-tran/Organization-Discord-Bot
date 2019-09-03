@@ -43,7 +43,6 @@ client.on('message', msg => {
   	//if(!channel) return;
   	if (isNumeric(delete_message)){
   		delete_number = parseInt(delete_message,10) + 1;
-  		bot_channel.send("**Deleting last "+ delete_message + " messages**")
   		console.log("Numeric Purge Working. Number is " + delete_message);
   		console.log(delete_number);
 	  	msg.channel.fetchMessages({limit: delete_number})
@@ -52,10 +51,10 @@ client.on('message', msg => {
 		  			mesg.delete();
 	  			})
 	  	  	})
-			.catch(err => console.log(err))
+			.catch(err => console.log("Your mother"))
+		bot_channel.send("**Deleted last "+ delete_message + " messages**")
   	}
   	else{
-	  	bot_channel.send("**Cleaning up messages:** " + delete_message);
 	  	console.log("Purge Working")
 	  	msg.delete();
 	  	msg.channel.fetchMessages({limit: 50})
@@ -64,7 +63,8 @@ client.on('message', msg => {
 		  			if (mesg.content === delete_message) mesg.delete();
 		  		})
 		  	})
-		  	.catch(err => console.log(err))
+		  	.catch(err => console.log("Your mom"))
+		bot_channel.send("**Cleaned up message:** " + delete_message); 
   	}
   }
  //  	var userRead = fs.readFileSync(userPath);
