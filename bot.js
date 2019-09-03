@@ -55,7 +55,6 @@ client.on('message', msg => {
   	else{
 	  	bot_channel.send("**Cleaning up messages:** " + delete_message);
 	  	console.log("Purge Working")
-	  	msg.delete();
 	  	msg.channel.fetchMessages({limit: 50}).then(collected =>{
 	  		collected.forEach(mesg => {
 	  			if (mesg.content === delete_message) mesg.delete();
