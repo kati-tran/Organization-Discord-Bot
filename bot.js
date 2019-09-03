@@ -46,7 +46,6 @@ client.on('message', msg => {
   		bot_channel.send("**Deleting last "+ delete_message + " messages**")
   		console.log("Numeric Purge Working. Number is " + delete_message);
   		console.log(delete_number);
-  		msg.delete();
 	  	msg.channel.fetchMessages({limit: delete_number}).then(collected =>{
 	  		collected.forEach(mesg => {
 	  			mesg.delete();
