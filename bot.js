@@ -46,20 +46,28 @@ client.on('message', msg => {
   		bot_channel.send("**Deleting last "+ delete_message + " messages**")
   		console.log("Numeric Purge Working. Number is " + delete_message);
   		console.log(delete_number);
-	  	msg.channel.fetchMessages({limit: delete_number}).then(collected =>{
-	  		collected.forEach(mesg => {
-	  			mesg.delete();
-	  		})
-	  	  })
+	  	msg.channel.fetchMessages({limit: delete_number})
+	  		.then(collected =>{
+		  		collected.forEach(mesg => {
+		  			mesg.delete();
+	  			})
+	  	  	})
+	  	  	.catch(err){
+	  	  		console.log("Error in number purge");
+	  	  	}
   	}
   	else{
 	  	bot_channel.send("**Cleaning up messages:** " + delete_message);
 	  	console.log("Purge Working")
-	  	msg.channel.fetchMessages({limit: 50}).then(collected =>{
-	  		collected.forEach(mesg => {
-	  			if (mesg.content === delete_message) mesg.delete();
-	  		})
-	  	})
+	  	msg.channel.fetchMessages({limit: 50})
+	  		.then(collected =>{
+		  		collected.forEach(mesg => {
+		  			if (mesg.content === delete_message) mesg.delete();
+		  		})
+		  	})
+		  	.catch(err){
+		  		console.log("Error in normal purge");
+		  	}
   	}
   }
  //  	var userRead = fs.readFileSync(userPath);
