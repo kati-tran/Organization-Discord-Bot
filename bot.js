@@ -52,9 +52,7 @@ client.on('message', msg => {
 		  			mesg.delete();
 	  			})
 	  	  	})
-	  	  	.catch(err){
-	  	  		console.log("Error in number purge");
-	  	  	}
+			.catch(err => console.log(err))
   	}
   	else{
 	  	bot_channel.send("**Cleaning up messages:** " + delete_message);
@@ -65,9 +63,7 @@ client.on('message', msg => {
 		  			if (mesg.content === delete_message) mesg.delete();
 		  		})
 		  	})
-		  	.catch(err){
-		  		console.log("Error in normal purge");
-		  	}
+		  	.catch(err => console.log(err))
   	}
   }
  //  	var userRead = fs.readFileSync(userPath);
