@@ -51,18 +51,19 @@ client.on('message', msg => {
 		  			mesg.delete();
 	  			})
 	  	  	})
-			.catch(err => console.log("Your mother"))
+			.catch(err => console.log(err))
   	}
   	else{
 	  	console.log("Purge Working")
-	  	msg.delete();
 	  	msg.channel.fetchMessages({limit: 50})
 	  		.then(collected =>{
 		  		collected.forEach(mesg => {
-		  			if (mesg.content === delete_message) mesg.delete();
+		  			if (mesg.content === delete_message) 
+		  				mesg.delete();
 		  		})
 		  	})
-		  	.catch(err => console.log("Your mom"))
+		  	.catch(err => console.log(err))
+		msg.delete();
   	}
 	bot_channel.send("**Deleted **"+ delete_message)
   }
