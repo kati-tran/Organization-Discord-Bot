@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const fs = require('fs')
+//const fs = require('fs')
 
 //const auth = require('./auth.json');
 //var config = require('./user_data.json')
 //var userRead = fs.readFileSync(userPath);
 //var userFile = JSON.parse(userRead);
 
-var userPath = './user_data.json'
+//var userPath = './user_data.json'
 
 
 
@@ -26,8 +26,8 @@ var blockedcommands = ['!da', 'gif']
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
-  const valid_command = msg.content.split(' ').length;
-  const first_word = msg.content.split(' ')[0]
+  var valid_command = msg.content.split(' ').length;
+  var first_word = msg.content.split(' ')[0]
 
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
