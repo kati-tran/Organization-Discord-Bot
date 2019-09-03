@@ -23,6 +23,10 @@ var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
 
+function isNumeric(value) {
+    return /^\d+$/.test(value);
+}
+
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
@@ -37,15 +41,29 @@ client.on('message', msg => {
   if (first_word == '!purge' && valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
-  	bot_channel.send("**Cleaning up messages:** " + delete_message);
-  	console.log("Purge Working")
-  	msg.delete();
-  	msg.channel.fetchMessages({limit: 50}).then(collected =>{
-  		collected.forEach(mesg => {
-  			if (mesg.content === delete_message) mesg.delete();
-  		})
-  	  })
+  	if isNumeric(delete_message){
+  		delete_number = parseInt(delete_message,10)
+  		bot_channel.send("**Deleting last "+ delete_message + " messages**")
+  		console.log("Numeric Purge Working. Number is " + delete_message);
+  		console.log(delete_number);
+  		msg.delete();
+	  	msg.channel.fetchMessages({limit: delete_number}).then(collected =>{
+	  		collected.forEach(mesg => {
+	  			mesg.delete();
+	  		})
+	  	  })
   	}
+  	else{
+	  	bot_channel.send("**Cleaning up messages:** " + delete_message);
+	  	console.log("Purge Working")
+	  	msg.delete();
+	  	msg.channel.fetchMessages({limit: 50}).then(collected =>{
+	  		collected.forEach(mesg => {
+	  			if (mesg.content === delete_message) mesg.delete();
+	  		})
+	  	})
+  	}
+  }
  //  	var userRead = fs.readFileSync(userPath);
 	// var userFile = JSON.parse(userRead);
     if (first_word == '!quote'){
