@@ -58,10 +58,12 @@ client.on('message', msg => {
 	  	msg.channel.fetchMessages({limit: 50})
 	  		.then(collected =>{
 		  		collected.forEach(mesg => {
-		  			if (mesg.content === delete_message) 
-		  				mesg.delete();
-		  			else{
-		  				console.log("Nope")
+		  			try{
+		  				if (mesg.content === delete_message) 
+		  					mesg.delete();
+		  			}
+		  			catch(e){
+		  				
 		  			}
 		  		})
 		  	})
