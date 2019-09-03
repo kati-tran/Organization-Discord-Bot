@@ -32,7 +32,7 @@ client.on('message', msg => {
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
     && !blockedchannels.includes(msg.channel.id)) {
-    client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
+    bot_channel.send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
   if (first_word == '!purge' && valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
@@ -44,22 +44,22 @@ client.on('message', msg => {
   		})
   	  })
   	}
-  	var userRead = fs.readFileSync(userPath);
-	var userFile = JSON.parse(userRead);
+ //  	var userRead = fs.readFileSync(userPath);
+	// var userFile = JSON.parse(userRead);
     if (first_word == '!quote'){
       if (valid_command > 1){
 
     
         userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
         console.log(userFile[msg.author.username]);
-        fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
-        fs.writeFile(userPath, JSON.stringify(userFile), 'utf8', function (err) {
-            if (err) {
-                return console.log(err);
-            }
+        // fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
+        // fs.writeFile(userPath, JSON.stringify(userFile), 'utf8', function (err) {
+        //     if (err) {
+        //         return console.log(err);
+        //     }
 
-            console.log("The file was saved!");
-        }); 
+        //     console.log("The file was saved!");
+        // }); 
        
         bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
       }
