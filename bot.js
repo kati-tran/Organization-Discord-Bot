@@ -41,7 +41,7 @@ client.on('message', msg => {
   if (first_word == '!purge' && valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
-  	if isNumeric(delete_message){
+  	if (isNumeric(delete_message)){
   		delete_number = parseInt(delete_message,10)
   		bot_channel.send("**Deleting last "+ delete_message + " messages**")
   		console.log("Numeric Purge Working. Number is " + delete_message);
