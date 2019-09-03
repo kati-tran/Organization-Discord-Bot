@@ -52,7 +52,6 @@ client.on('message', msg => {
 	  			})
 	  	  	})
 			.catch(err => console.log("Your mother"))
-		bot_channel.send("**Deleted last "+ delete_message + " messages**")
   	}
   	else{
 	  	console.log("Purge Working")
@@ -64,8 +63,8 @@ client.on('message', msg => {
 		  		})
 		  	})
 		  	.catch(err => console.log("Your mom"))
-		bot_channel.send("**Cleaned up message:** " + delete_message); 
   	}
+	bot_channel.send("**Deleted **"+ delete_message)
   }
  //  	var userRead = fs.readFileSync(userPath);
 	// var userFile = JSON.parse(userRead);
