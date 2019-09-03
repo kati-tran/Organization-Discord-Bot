@@ -58,12 +58,11 @@ client.on('message', msg => {
 	  	msg.channel.fetchMessages({limit: 50})
 	  		.then(collected =>{
 		  		collected.forEach(mesg => {
-		  			if (mesg.content === delete_message) 
+		  			if (mesg.content === delete_message || mesg.content === msg.content) 
 		  				mesg.delete();
 		  		})
 		  	})
 		  	.catch(err => console.log(err))
-		msg.delete();
   	}
 	bot_channel.send("**Deleted **"+ delete_message)
   }
