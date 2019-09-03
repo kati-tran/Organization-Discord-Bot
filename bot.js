@@ -21,13 +21,13 @@ client.on('ready', () => {
 
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
-//var saved_quotes = {};
+var saved_quotes = {};
 
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
-  var valid_command = msg.content.split(' ').length;
-  var first_word = msg.content.split(' ')[0]
+  const valid_command = msg.content.split(' ').length;
+  const first_word = msg.content.split(' ')[0]
 
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
@@ -49,9 +49,9 @@ client.on('message', msg => {
     if (first_word == '!quote'){
       if (valid_command > 1){
 
-    
-        userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
-        console.log(userFile[msg.author.username]);
+    	saved_quotes[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)}
+        //userFile[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)};
+        //console.log(userFile[msg.author.username]);
         // fs.writeFileSync(userPath, JSON.stringify(userFile, null, 2));
         // fs.writeFile(userPath, JSON.stringify(userFile), 'utf8', function (err) {
         //     if (err) {
@@ -61,7 +61,7 @@ client.on('message', msg => {
         //     console.log("The file was saved!");
         // }); 
        
-        bot_channel.send("**"+msg.author.username + " saved message:** " + userFile[msg.author.username].quote);
+        bot_channel.send("**"+msg.author.username + " saved message:** " + saved_quotes[msg.author.username].quote);
       }
       else
       {
@@ -70,11 +70,11 @@ client.on('message', msg => {
     }
  
     if(msg.content === '!qs'){
-      if (!userFile[msg.author.username] || userFile[msg.author.username].quote == ""){
+      if (!saved_quotes[msg.author.username] || saved_quotes[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
       }
       else{
-        msg.channel.send(userFile[msg.author.username].quote);
+        msg.channel.send(saved_quotes[msg.author.username].quote);
         msg.delete();
       }
     }
