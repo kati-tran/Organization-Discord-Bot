@@ -60,6 +60,9 @@ client.on('message', msg => {
 		  		collected.forEach(mesg => {
 		  			if (mesg.content === delete_message) 
 		  				mesg.delete();
+		  			else{
+		  				console.log("Nope")
+		  			}
 		  		})
 		  	})
 		  	.catch(err => console.log(err))
