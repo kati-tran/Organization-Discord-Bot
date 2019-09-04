@@ -121,6 +121,14 @@ client.on('message', msg => {
 	    		if(isNumeric(m[0]) && isNumeric(m[2])){
 	    			if(m[1] === '+')
 		    			msg.channel.send(parseInt(m[0],10) + parseInt(m[2],10))
+		    		if(m[1] === '-')
+		    			msg.channel.send(parseInt(m[0],10) - parseInt(m[2],10))
+		    		if(m[1] === '*')
+		    			msg.channel.send(parseInt(m[0],10) * parseInt(m[2],10))
+		    		if(m[1] === '/')
+		    			msg.channel.send(parseInt(m[0],10) / parseInt(m[2],10))
+		    		if(m[1] === '**')
+		    			msg.channel.send(parseInt(m[0],10) ** parseInt(m[2],10))
 	    		}
     		}
     	}
