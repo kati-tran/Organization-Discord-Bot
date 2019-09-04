@@ -140,15 +140,15 @@ client.on('message', msg => {
 		// console.log(second)
 		if(isNumeric(first) && isNumeric(second)){
 			if(s === '+')
-    			msg.channel.send(parseInt(first,10) + parseInt(second,10))
+    			msg.channel.send(Number(first) + Number(second))
     		if(s === '-')
-    			msg.channel.send(parseInt(first,10) - parseInt(second,10))
+    			msg.channel.send(Number(first) - Number(second))
     		if(s === '*')
-    			msg.channel.send(parseInt(first,10) * parseInt(second,10))
+    			msg.channel.send(Number(first) * Number(second))
     		if(s === '/')
-    			msg.channel.send(parseInt(first,10) / parseInt(second,10))
+    			msg.channel.send(Number(first) / Number(second))
     		if(s === '**')
-    			msg.channel.send(parseInt(first,10) ** parseInt(second,10))
+    			msg.channel.send(Number(first) ** Number(second))
 		}
     }
 
