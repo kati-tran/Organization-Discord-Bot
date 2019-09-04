@@ -140,7 +140,7 @@ client.on('message', msg => {
     		mark = false;
     		s = ''
     		for(var i = 0; i < math_part.length; i++){
-    			if(!signs.includes(math_part[i]) && mark === false)
+    			if(!signs.includes(math_part[i]) && mark === false && math_part[i] != ' ')
     			{
     				first += math_part[i]
     			}
@@ -148,7 +148,7 @@ client.on('message', msg => {
     				s += math_part[i]
     				mark = true;
     			}
-    			if(!signs.includes(math_part[i]) && mark === true)
+    			if(!signs.includes(math_part[i]) && mark === true && math_part[i] != ' ')
     			{
     				second += math_part[i]
     			}
