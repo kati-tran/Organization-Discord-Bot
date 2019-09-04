@@ -144,7 +144,7 @@ client.on('message', msg => {
     				break
     		}
     		console.log(first);
-    		for(var i = (math_part.length - (first.length+1)); i < math_part.length;i++){
+    		for(var i = (math_part.length - (first.length)); i < math_part.length;i++){
     			if(!signs.includes(math_part[i]))
     				second += math_part[i]
     			else
