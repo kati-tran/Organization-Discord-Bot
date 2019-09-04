@@ -102,9 +102,9 @@ client.on('message', msg => {
     }
 
     if(msg.content === '!covenant'){
-    	msg.channel.send("```html <b><u>Commands</b></u> \n\n<b>!covenant</b>: Brings up the help menu to see available commands/usability. \n\n<b>!quote</b>: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
-    	 \n\n<b>!qs</b>: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n <b>!purge</b> Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
-    	 \n\n<b>!da</b>: Used before a link to prevent the link from being redirected to the designated channel. \n\n <b><u>Functionality</b></u> \n\n <b>Link Redirect</b>: Moves all links to the designated channel for organization. ```")
+    	msg.channel.send("**__Commands**__ \n\n**!covenant**: Brings up the help menu to see available commands/usability. \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
+    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n **!purge** Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
+    	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \n\n **__Functionality**__ \n\n **Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
 });
