@@ -107,7 +107,7 @@ client.on('message', msg => {
 
     if(msg.content === '!covenant'){
     	msg.channel.send("**__Commands__** \n\n**!covenant**: Brings up the help menu to see available commands/usability. \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
-    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n**!math**: Do basic math between two numbers (Currently allows: +, -, *, /, **). Example: '!math 2+3' or '!math 2 + 3' \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
+    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n**!math**: Do basic math between two numbers. Example: '!math 2+3' or '!math 2 + 3' \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \n\n**__Functionality__** \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
