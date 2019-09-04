@@ -141,13 +141,17 @@ client.on('message', msg => {
     		s = ''
     		for(var i = 0; i < math_part.length; i++){
     			if(!signs.includes(math_part[i]) && mark === false)
+    			{
     				first += math_part[i]
+    			}
     			else if (signs.includes(math_part[i])){
     				s += math_part[i]
     				mark = true;
     			}
-    			if(!signs.includes(math_part[i] && mark === true))
+    			if(!signs.includes(math_part[i]) && mark === true)
+    			{
     				second += math_part[i]
+    			}
     		}
     		console.log(first)
     		console.log(s)
