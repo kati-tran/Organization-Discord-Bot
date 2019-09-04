@@ -58,13 +58,8 @@ client.on('message', msg => {
 	  	msg.channel.fetchMessages({limit: 50})
 	  		.then(collected =>{
 		  		collected.forEach(mesg => {
-		  			try{
-		  				if (mesg.content === delete_message) 
-		  					mesg.delete();
-		  			}
-		  			catch(e){
-		  				
-		  			}
+		  			if (mesg.content === delete_message) 
+		  				mesg.delete();
 		  		})
 		  	})
 		  	.catch(err => console.log(err))
@@ -104,6 +99,11 @@ client.on('message', msg => {
         msg.channel.send(saved_quotes[msg.author.username].quote);
         msg.delete();
       }
+    }
+
+    if(msg.content === '!covenant'){
+    	msg.channel.send("```html \n**!covenant**: Brings up the help menu to see available commands/usability. \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
+    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n **!purge** Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10'```")
     }
 
 });
