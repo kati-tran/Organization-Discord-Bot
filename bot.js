@@ -27,8 +27,8 @@ function isPosNumeric(value) {
     return /^\d+$/.test(value);
 }
 
-function isNumeric(value) {
-    return /^-{0,1}\d+$/.test(value);
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 client.on('message', msg => {
@@ -135,9 +135,9 @@ client.on('message', msg => {
 				second += math_part[i]
 			}
 		}
-		// console.log(first)
-		// console.log(s)
-		// console.log(second)
+		console.log(first)
+		console.log(s)
+		console.log(second)
 		if(isNumeric(first) && isNumeric(second)){
 			if(s === '+')
     			msg.channel.send(Number(first) + Number(second))
