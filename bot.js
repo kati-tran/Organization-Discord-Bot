@@ -115,25 +115,24 @@ client.on('message', msg => {
     if(first_word == '!math' && valid_command > 1){
 
     	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
-    	if (valid_command > 2){
-    		m = math_part.split(' ');
-    		console.log(m)
-    		if(m.length === 3){
-	    		if(isNumeric(m[0]) && isNumeric(m[2])){
-	    			if(m[1] === '+')
-		    			msg.channel.send(parseInt(m[0],10) + parseInt(m[2],10))
-		    		if(m[1] === '-')
-		    			msg.channel.send(parseInt(m[0],10) - parseInt(m[2],10))
-		    		if(m[1] === '*')
-		    			msg.channel.send(parseInt(m[0],10) * parseInt(m[2],10))
-		    		if(m[1] === '/')
-		    			msg.channel.send(parseInt(m[0],10) / parseInt(m[2],10))
-		    		if(m[1] === '**')
-		    			msg.channel.send(parseInt(m[0],10) ** parseInt(m[2],10))
-	    		}
-    		}
-    	}
-    	if (valid_command === 2){
+    	// if (valid_command > 2){
+    	// 	m = math_part.split(' ');
+    	// 	console.log(m)
+    	// 	if(m.length === 3){
+	    // 		if(isNumeric(m[0]) && isNumeric(m[2])){
+	    // 			if(m[1] === '+')
+		   //  			msg.channel.send(parseInt(m[0],10) + parseInt(m[2],10))
+		   //  		if(m[1] === '-')
+		   //  			msg.channel.send(parseInt(m[0],10) - parseInt(m[2],10))
+		   //  		if(m[1] === '*')
+		   //  			msg.channel.send(parseInt(m[0],10) * parseInt(m[2],10))
+		   //  		if(m[1] === '/')
+		   //  			msg.channel.send(parseInt(m[0],10) / parseInt(m[2],10))
+		   //  		if(m[1] === '**')
+		   //  			msg.channel.send(parseInt(m[0],10) ** parseInt(m[2],10))
+	    // 		}
+    	// 	}
+    	// }
     		console.log(math_part)
     		first = ''
     		second = ''
@@ -157,7 +156,6 @@ client.on('message', msg => {
     		console.log(s)
     		console.log(second)
 
-    	}
     }
 
 });
