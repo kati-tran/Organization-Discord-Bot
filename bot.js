@@ -23,8 +23,12 @@ var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
 
-function isNumeric(value) {
+function isPosNumeric(value) {
     return /^\d+$/.test(value);
+}
+
+function isNumeric(value) {
+    return /^-{0,1}\d+$/.test(value);
 }
 
 client.on('message', msg => {
@@ -41,7 +45,7 @@ client.on('message', msg => {
   if (first_word == '!purge' && valid_command > 1){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
-  	if (isNumeric(delete_message)){
+  	if (isPosNumeric(delete_message)){
   		delete_number = parseInt(delete_message,10) + 1;
   		console.log("Numeric Purge Working. Number is " + delete_message);
   		console.log(delete_number);
@@ -105,6 +109,25 @@ client.on('message', msg => {
     	msg.channel.send("**__Commands__** \n\n**!covenant**: Brings up the help menu to see available commands/usability. \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
     	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n**!purge** Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \n\n**__Functionality__** \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
+    }
+
+    if(first_word == '!math' && valid_command > 1){
+
+		var math_it_up = {
+		    '+': function (x, y) { return x + y },
+		    '-': function (x, y) { return x - y }
+		}​​​​​​​;
+
+    	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
+    	if (valid_command > 2){
+    		m = math_part.split(' ').length;
+    		console.log(m)
+    		if(m.length === 3){
+	    		if(isNumeric(m[0]) && isNumeric(m[2])){
+	    			msg.channel.send(math_it_up[m[1]](parseInt(m[0],10), parseInt(m[2],10)))
+	    		}
+    		}
+    	}
     }
 
 });
