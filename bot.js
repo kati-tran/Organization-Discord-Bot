@@ -113,18 +113,14 @@ client.on('message', msg => {
 
     if(first_word == '!math' && valid_command > 1){
 
-		var math_it_up = {
-		    '+': function (x, y) { return x + y },
-		    '-': function (x, y) { return x - y }
-		}​​​​​​​;
-
     	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
     	if (valid_command > 2){
     		m = math_part.split(' ').length;
     		console.log(m)
     		if(m.length === 3){
 	    		if(isNumeric(m[0]) && isNumeric(m[2])){
-	    			msg.channel.send(math_it_up[m[1]](parseInt(m[0],10), parseInt(m[2],10)))
+	    			if(m[1] === '+')
+		    			msg.channel.send(parseInt(m[0],10) + parseInt(m[2],10))
 	    		}
     		}
     	}
