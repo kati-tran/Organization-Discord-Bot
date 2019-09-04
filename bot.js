@@ -111,6 +111,7 @@ client.on('message', msg => {
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \n\n**__Functionality__** \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
+    signs = ['+','-','*','/','**']
     if(first_word == '!math' && valid_command > 1){
 
     	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
@@ -131,6 +132,26 @@ client.on('message', msg => {
 		    			msg.channel.send(parseInt(m[0],10) ** parseInt(m[2],10))
 	    		}
     		}
+    	}
+    	if (valid_command === 2){
+    		console.log(math_part)
+    		first = ''
+    		second = ''
+    		for(var i = 0; i < math_part.length; i++){
+    			if(!signs.includes(math_part[i]))
+    				first += math_part[i]
+    			else
+    				break
+    		}
+    		console.log(first);
+    		for(var i = (math_part.length - (first.length+1)); i < math_part.length;i++){
+    			if(!signs.includes(math_part[i]))
+    				second += math_part[i]
+    			else
+    				break
+    		}
+    		console.log(second)
+
     	}
     }
 
