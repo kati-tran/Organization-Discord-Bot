@@ -115,7 +115,7 @@ client.on('message', msg => {
 
     	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
     	if (valid_command > 2){
-    		m = math_part.split(' ').length;
+    		m = math_part.split(' ');
     		console.log(m)
     		if(m.length === 3){
 	    		if(isNumeric(m[0]) && isNumeric(m[2])){
