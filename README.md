@@ -2,6 +2,20 @@
 Bot that's mainly used in team Covenant's discord server for organization (and fun).
 
 Currently contains:
-  <li> -Redirect links to appropriate channel so we stop losing important references in the piles of messages and links</li>
-  <li> -Clean method that helps to remove spam (Use "!purge [phrase]" to delete messages equalling that phrase. In development) </li>
-  <li> -Quote saving for each user. (Use "!quote [phrase]" to save/change a phrase, then "!qs" to use your phrase whenever)
+<h1>Commands</h1> 
+
+<li>!covenant: Brings up the help menu to see available commands/usability.</li>
+
+<li>!quote: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!'</li>
+
+<li>!qs: Use the quote that was saved using !quote. Requires a quote to be saved before use.</li>
+
+<li>!math: Do basic math between two numbers (Currently allows: +, -, *, /, ** ). Example: '!math 2+3' or '!math 2 + 3' </li>
+
+<li>!purge: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10'</li>
+
+<li>!da: Used before a link to prevent the link from being redirected to the designated channel.</li>
+
+<h1>Functionality</h1> 
+
+<li>Link Redirect: Moves all links to the designated channel for organization.</li>
