@@ -67,7 +67,7 @@ function pinMessage(guild, message, user)
 {
 	const hall_of_fame = message.guild.channels.find(ch => ch.name === 'hall-of-fame');
     let pinMessage = [
-        `**${user.username}** pinned a message by **${message.author.username}**: ${message.content}`,
+        `**${message.author.username}**: ${message.content}`,
         `**-----------------------------------------------------------**`
     ];
 
@@ -165,6 +165,7 @@ client.on('message', msg => {
     	 \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \
     	 \n\n**__Functionality__** \
+    	 \n\n**Pin Reactions**: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. \
     	 \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
