@@ -92,7 +92,7 @@ client.on('message', msg => {
     && !blockedchannels.includes(msg.channel.id)) {
     client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
-  if (first_word == '!purge' && valid_command > 1){
+  if (first_word == '!purge' && valid_command > 1 && msg.author != client.user){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
   	//if(!channel) return;
   	if (isPosNumeric(delete_message)){
@@ -122,7 +122,7 @@ client.on('message', msg => {
   }
  //  	var userRead = fs.readFileSync(userPath);
 	// var userFile = JSON.parse(userRead);
-    if (first_word == '!quote'){
+    if (first_word == '!quote' && msg.author != client.user){
       if (valid_command > 1){
 
     	saved_quotes[msg.author.username] = {quote: msg.content.substr(msg.content.indexOf(" ")+1)}
@@ -145,7 +145,7 @@ client.on('message', msg => {
       }
     }
  
-    if(msg.content === '!qs'){
+    if(msg.content === '!qs' && msg.author != client.user){
       if (!saved_quotes[msg.author.username] || saved_quotes[msg.author.username].quote == ""){
         bot_channel.send("**No saved message**");
       }
@@ -155,7 +155,7 @@ client.on('message', msg => {
       }
     }
 
-    if(msg.content === '!covenant'){
+    if(msg.content === '!covenant' && msg.author != client.user){
     	msg.channel.send("**__Commands__** \
     	 \n\n**!covenant**: Brings up the help menu to see available commands/usability. \
     	 \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
@@ -171,7 +171,7 @@ client.on('message', msg => {
 
     signs = ['+','-','*','/','**']
     //var ans = 0;
-    if(first_word == '!math' && valid_command > 1){
+    if(first_word == '!math' && valid_command > 1 && msg.author != client.user){
 
     	var math_part = msg.content.substr(msg.content.indexOf(" ")+1)
 		console.log(math_part)
@@ -224,7 +224,7 @@ client.on('message', msg => {
 		return client.users.get(id);
 	}
 
-    if(first_word === '!hof' && valid_command > 2)
+    if(first_word === '!hof' && valid_command > 2 && msg.author != client.user)
     {
     	var index = msg.content.indexOf( ' ', msg.content.indexOf( ' ' ) + 1 );
     	const user = getUserFromMention(msg.content.split(' ')[1]);
