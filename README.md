@@ -10,6 +10,8 @@ Currently contains:
 
 <li>!qs: Use the quote that was saved using !quote. Requires a quote to be saved before use.</li>
 
+<li>!hof: Sends memorable quotes to a designated channel. Bypasses the Discord 50 pins rule. Example: '!hof @User [spoken quote here]'</li>
+
 <li>!math: Do basic math between two numbers (Currently allows: +, -, *, /, ** ). Example: '!math 2+3' or '!math 2 + 3' </li>
 
 <li>!purge: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10'</li>
@@ -17,5 +19,7 @@ Currently contains:
 <li>!da: Used before a link to prevent the link from being redirected to the designated channel.</li>
 
 <h1>Functionality</h1> 
+
+<li>Pin Reactions: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. </li>
 
 <li>Link Redirect: Moves all links to the designated channel for organization.</li>
