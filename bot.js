@@ -13,11 +13,27 @@ const client = new Discord.Client();
 
 
 
-client.on('ready', () => {
+function onReady() {
 
     console.log(`Logged in as ${client.user.tag}!`);
+    let guild   = null;
+    let channel = null;
+    for ( guild   of client.guilds.values() )
+    for ( channel of guild.channels.values() )
+    {
 
-});
+        const channelName = channel.name;
+        // Skip non-text channels
+        if (!channel.fetchMessages) continue;
+        // Max limit is 100 messages...
+        channel.fetchMessages({limit: 100})
+            .then(messages => {
+                console.log(`Received ${messages.size} messages for #${channelName}`)
+            })
+            .catch(console.error);
+     }
+
+};
 
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
@@ -30,6 +46,40 @@ function isPosNumeric(value) {
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
+function onReaction(react, user)
+
+{
+    const message = react.message;
+    const channel = message.channel;
+    const guild   = message.guild;
+    // Ignore if this happened in the target channel
+    // Ignore if it's not the superpin emoji
+    if ( react.emoji !== '📌' )
+        return;
+    // Finally, go ahead and pin it to the channel
+
+    pinMessage(guild, message, user);
+}
+
+function pinMessage(guild, message, user)
+
+{
+	const hall_of_fame = msg.guild.channels.find(ch => ch.name === 'hall-of-fame');
+    let pinMessage = [
+        `**${user.username}** pinned a message by **${message.author.username}**:`,
+        `---`,
+        `<**${message.createdAt.toLocaleString()}**> ${message.content}`
+    ];
+
+    hall_of_fame.send(pinMessage)
+        .then(_ => console.log(`Pinned ${user.tag}'s message: "${message.content}"`))
+        .catch(console.error);
+}
+
+client.on('ready', onReady);
+
+client.on('messageReactionAdd', onReaction);
 
 client.on('message', msg => {
 
@@ -107,9 +157,16 @@ client.on('message', msg => {
     }
 
     if(msg.content === '!covenant'){
-    	msg.channel.send("**__Commands__** \n\n**!covenant**: Brings up the help menu to see available commands/usability. \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
-    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \n\n**!math**: Do basic math between two numbers. Example: '!math 2+3' or '!math 2 + 3' \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
-    	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \n\n**__Functionality__** \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
+    	msg.channel.send("**__Commands__** \
+    	 \n\n**!covenant**: Brings up the help menu to see available commands/usability. \
+    	 \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
+    	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \
+    	 \n\n**!hof**: Sends memorable quotes to a designated channel. Bypasses the Discord 50 pins rule. Example: '!hof @User [spoken quote here]' \
+    	 \n\n**!math**: Do basic math between two numbers. Example: '!math 2+3' or '!math 2 + 3' \
+    	 \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
+    	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \
+    	 \n\n**__Functionality__** \
+    	 \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
     signs = ['+','-','*','/','**']
