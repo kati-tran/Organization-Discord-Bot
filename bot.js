@@ -162,7 +162,7 @@ client.on('message', msg => {
     	}
     	else
     	{
-    		hall_of_fame.send(`**${user.username}:** ${msg.content.substr(msg.content.indexOf(" ")+2)}`)
+    		hall_of_fame.send(`**${user}:** ${msg.content.substr(msg.content.indexOf(" ")+2)}`)
     	}
     }
 
