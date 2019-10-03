@@ -56,7 +56,8 @@ function onReaction(react, user)
     const guild   = message.guild;
     // Ignore if this happened in the target channel
     // Ignore if it's not the superpin emoji
-	pinMessage(guild, message, user);
+    if (react.emoji.name === '📌')
+		pinMessage(guild, message, user);
     // Finally, go ahead and pin it to the channel
 	    
 }
@@ -68,7 +69,7 @@ function pinMessage(guild, message, user)
     let pinMessage = [
         `**${user.username}** pinned a message by **${message.author.username}**:`,
         `---`,
-        `<**${message.createdAt.toLocaleString()}**> ${message.content}`
+        `${message.content}`
     ];
 
     hall_of_fame.send(pinMessage)
