@@ -64,7 +64,7 @@ function onReaction(react, user)
 function pinMessage(guild, message, user)
 
 {
-	const hall_of_fame = msg.guild.channels.find(ch => ch.name === 'hall-of-fame');
+	const hall_of_fame = message.guild.channels.find(ch => ch.name === 'hall-of-fame');
     let pinMessage = [
         `**${user.username}** pinned a message by **${message.author.username}**:`,
         `---`,
