@@ -34,6 +34,7 @@ function isNumeric(n) {
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
+  const hall_of_fame = msg.guild.channels.find(ch => ch.name === 'hall-of-fame');
   const valid_command = msg.content.split(' ').length;
   const first_word = msg.content.split(' ')[0]
 
@@ -150,6 +151,32 @@ client.on('message', msg => {
     		if(s === '**')
     			msg.channel.send(Number(first) ** Number(second))
 		}
+    }
+
+	function getUserFromMention(mention) {
+		if (!mention) return;
+
+		if (mention.startsWith('<@') && mention.endsWith('>')) {
+			mention = mention.slice(2, -1);
+
+			if (mention.startsWith('!')) {
+				mention = mention.slice(1);
+			}
+
+			return client.users.get(mention);
+		}
+	}
+
+    if(first_word === '!hof' && valid_command > 2)
+    {
+    	const user = getUserFromMention(msg.content.split(' ')[1])
+    	if(!user){
+    		bot_channel.send("Please pick a valid user to cite. Example: '!hof @User quote quote quote'")
+    	}
+    	else
+    	{
+    		hall_of_fame.send(`**${user.username}:** ${msg.content.substr(msg.content.indexOf(" ")+2)}`)
+    	}
     }
 
 });
