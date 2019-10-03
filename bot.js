@@ -155,7 +155,7 @@ client.on('message', msg => {
 
     if(first_word === '!hof' && valid_command > 2)
     {
-    	let user = msg.mentions.users.first().id
+    	let user = msg.author
     	console.log(user)
     	if(!user){
     		bot_channel.send("Please pick a valid user to cite. Example: '!hof @User quote quote quote'")
