@@ -153,9 +153,9 @@ client.on('message', msg => {
 		}
     }
 
-    if(first_word === '!hof' && valid_command > 2)
+    if(first_word === '!hof' && valid_command > 1)
     {
-		hall_of_fame.send("**" + msg.author.username + ":**" + msg.content.substr(msg.content.indexOf(" ")+2))
+		hall_of_fame.send("**" + msg.author.username + ":**" + msg.content.substr(msg.content.indexOf(" ")+1))
 
     }
 
