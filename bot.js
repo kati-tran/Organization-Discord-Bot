@@ -138,6 +138,7 @@ client.on('message', msg => {
         // }); 
        
         bot_channel.send("**"+msg.author.username + " saved message:** " + saved_quotes[msg.author.username].quote);
+        msg.delete();
       }
       else
       {
