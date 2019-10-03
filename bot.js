@@ -26,7 +26,7 @@ function onReady() {
         // Skip non-text channels
         if (!channel.fetchMessages) continue;
         // Max limit is 100 messages...
-        channel.fetchMessages({limit: 1000})
+        channel.fetchMessages({limit: 100})
             .then(messages => {
                 console.log(`Received ${messages.size} messages for #${channelName}`)
             })
@@ -47,6 +47,7 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+
 function onReaction(react, user)
 
 {
@@ -55,8 +56,7 @@ function onReaction(react, user)
     const guild   = message.guild;
     // Ignore if this happened in the target channel
     // Ignore if it's not the superpin emoji
-    if ( react.emoji.name === '📌' )
-    	pinMessage(guild, message, user);
+	pinMessage(guild, message, user);
     // Finally, go ahead and pin it to the channel
 	    
 }
