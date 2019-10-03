@@ -55,11 +55,10 @@ function onReaction(react, user)
     const guild   = message.guild;
     // Ignore if this happened in the target channel
     // Ignore if it's not the superpin emoji
-    if ( react.emoji !== '📌' )
-        return;
+    if ( react.emoji === '📌' )
+    	pinMessage(guild, message, user);
     // Finally, go ahead and pin it to the channel
-
-    pinMessage(guild, message, user);
+	    
 }
 
 function pinMessage(guild, message, user)
