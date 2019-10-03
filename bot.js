@@ -169,7 +169,7 @@ client.on('message', msg => {
 
     if(first_word === '!hof' && valid_command > 2)
     {
-    	var index = msg.content.indexOf( ' ', str.indexOf( ' ' ) + 1 );
+    	var index = msg.content.indexOf( ' ', msg.content.indexOf( ' ' ) + 1 );
     	const user = getUserFromMention(msg.content.split(' ')[1]);
     	if(!user){
     		bot_channel.send("Please provide a valid citation. Example: '!hof @User quote quote quote' ")
