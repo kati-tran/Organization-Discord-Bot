@@ -68,7 +68,7 @@ function pinMessage(guild, message, user)
 	const hall_of_fame = message.guild.channels.find(ch => ch.name === 'hall-of-fame');
     let pinMessage = [
         `**${user.username}** pinned a message by **${message.author.username}**: ${message.content}`,
-        `**--------------------------------------------------------------**`
+        `**-----------------------------------------------------------**`
     ];
 
     hall_of_fame.send(pinMessage)
