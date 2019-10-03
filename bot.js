@@ -153,31 +153,19 @@ client.on('message', msg => {
 		}
     }
 
-	function getUserFromMention(mention) {
-		// The id is the first and only match found by the RegEx.
-		const matches = mention.match(/^<@!?(\d+)>$/);
-
-		// If supplied variable was not a mention, matches will be null instead of an array.
-		if (!matches) return;
-
-		// However the first element in the matches array will be the entire mention, not just the ID,
-		// so use index 1.
-		const id = matches[1];
-
-		return client.users.get(id);
-	}
-
     if(first_word === '!hof' && valid_command > 2)
     {
-    	const user = getUserFromMention(msg.content.split(' ')[1])
+    	const user = msg.mentions.users.first()
+    	if (msg.content.split(' ')[1] === user){
+	    	if(!user){
+	    		bot_channel.send("Please pick a valid user to cite. Example: '!hof @User quote quote quote'")
+	    	}
+	    	else
+	    	{
+	    		hall_of_fame.send(`**${user.username}:** ${msg.content.substr(msg.content.indexOf(" ")+2)}`)
+	    	}
+    	}
     	console.log(user)
-    	if(!user){
-    		bot_channel.send("Please pick a valid user to cite. Example: '!hof @User quote quote quote'")
-    	}
-    	else
-    	{
-    		hall_of_fame.send(`**${user.username}:** ${msg.content.substr(msg.content.indexOf(" ")+2)}`)
-    	}
     }
 
 });
