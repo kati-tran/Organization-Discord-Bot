@@ -232,7 +232,7 @@ client.on('message', msg => {
     		bot_channel.send("Please provide a valid citation. Example: '!hof @User quote quote quote' ")
     	}
     	else{
-    		hall_of_fame.send("**" + user.username + ":** " + msg.content.substr(index + 1));		
+    		hall_of_fame.send("**" + user.username + ":** " + msg.content.substr(index + 1) + '\n --');		
     	}
 
     }
