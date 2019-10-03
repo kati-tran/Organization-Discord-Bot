@@ -26,7 +26,7 @@ function onReady() {
         // Skip non-text channels
         if (!channel.fetchMessages) continue;
         // Max limit is 100 messages...
-        channel.fetchMessages({limit: 100})
+        channel.fetchMessages({limit: 1000})
             .then(messages => {
                 console.log(`Received ${messages.size} messages for #${channelName}`)
             })
