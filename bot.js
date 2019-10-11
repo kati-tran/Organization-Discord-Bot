@@ -238,6 +238,10 @@ client.on('message', msg => {
 
     }
 
+    if (msg.isMentioned(client.user)){
+    	msg.channel.send('Testing')
+    }
+
 });
 
 
