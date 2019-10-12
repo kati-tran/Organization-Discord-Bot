@@ -243,7 +243,7 @@ client.on('message', msg => {
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
 	  			const boi = `${collected.random(1)}`
-	  			var newStr = boi.substr(boi.length-2)
+	  			var newStr = boi.substr(0,boi.length-2)
 	  			//console.log(collected.random(1))
 	  			console.log(newStr)
 	  	  	})
