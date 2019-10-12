@@ -256,7 +256,7 @@ client.on('message', msg => {
 	  				}
 	  			}
 	  			console.log(rusername)
-	  			var newStr = boi.substring(i,boi.length-2)
+	  			var newStr = boi.substring(rusername,boi.length-2)
 	  			//console.log(collected.random(1))
 	  			console.log(newStr)
 	  	  	})
