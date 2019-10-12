@@ -233,7 +233,7 @@ client.on('message', msg => {
     		bot_channel.send("Please provide a valid citation. Example: '!hof @User quote quote quote' ")
     	}
     	else{
-    		hall_of_fame.send("**" + user.username + ":** " + msg.content.substr(index + 1) + '\n--');		
+    		hall_of_fame.send("**" + user.username + "**: " + msg.content.substr(index + 1) + '\n--');		
     	}
 
     }
@@ -246,8 +246,12 @@ client.on('message', msg => {
 	  			rusername = 0;
 	  			for(var i = 0; i < boi.length; i++)
 	  			{
-	  				if(boi[i] === ':'){
-	  					rusername = i;
+	  				if(boi[i] === ':' && boi[i+1] == " "){
+	  					rusername = i+2;
+	  					break;
+	  				}
+	  				else if (boi[i] === ':' && boi[i+1] == "*"){
+	  					rusername = i+4;
 	  					break;
 	  				}
 	  			}
