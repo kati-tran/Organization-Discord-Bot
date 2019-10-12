@@ -248,8 +248,10 @@ client.on('message', msg => {
 	  			{
 	  				if(boi[i] === ':'){
 	  					rusername = i;
+	  					break;
 	  				}
 	  			}
+	  			console.log(rusername)
 	  			var newStr = boi.substr(i,boi.length-2)
 	  			//console.log(collected.random(1))
 	  			console.log(newStr)
