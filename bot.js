@@ -242,7 +242,7 @@ client.on('message', msg => {
     	msg.channel.send('Testing')
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
-	  			collected.random(1).forEach(mesg => {
+	  			collected.random(mesg => {
 		  			console.log(mesg)
 		  		})
 	  	  	})
