@@ -242,7 +242,8 @@ client.on('message', msg => {
     	msg.channel.send('Testing')
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
-	  			var newStr = `${collected.random(1)}`.substr(`${collected.random(1)}`.length-2)
+	  			const boi = `${collected.random(1)}`
+	  			var newStr = boi.substr(boi.length-2)
 	  			//console.log(collected.random(1))
 	  			console.log(newStr)
 	  	  	})
