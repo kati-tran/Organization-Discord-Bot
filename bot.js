@@ -242,7 +242,7 @@ client.on('message', msg => {
     	msg.channel.send('Testing')
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
-	  			console.log(collected)
+	  			console.log(collected.random(1))
 	  	  	})
 			.catch(err => console.log(err))
     }
