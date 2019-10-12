@@ -165,9 +165,11 @@ client.on('message', msg => {
     	 \n\n**!math**: Do basic math between two numbers. Example: '!math 2+3' or '!math 2 + 3' \
     	 \n\n**!purge**: Deletes messages that are exactly what is inputted. Can also delete the last n(number) of messages. Example: '!purge Hello World!' or '!purge 10' \
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \
+    	 \n\n**!8**: Has the bot reply like an 8-ball to yes or no questions from a collection of responses. \
     	 \n\n**__Functionality__** \
     	 \n\n**Pin Reactions**: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. \
     	 \n\n**Bot Mention**: When the bot is mentioned '@Bot', it will pick a random quote from the redirected pin channel and reply with that quote. \
+    	 \n\n**8-Ball**: The bot is given whatever responses to use for command !8. \
     	 \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
