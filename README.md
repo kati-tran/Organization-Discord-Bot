@@ -1,4 +1,4 @@
-# RedirectLinkDiscordBot
+# Covenant Bot
 Bot that's mainly used in team Covenant's discord server for organization (and fun).
 
 Currently contains:
@@ -18,8 +18,14 @@ Currently contains:
 
 <li>!da: Used before a link to prevent the link from being redirected to the designated channel.</li>
 
+<li>!8: Has the bot reply like an 8-ball to yes or no questions from a collection of responses..</li>
+
 <h1>Functionality</h1> 
 
 <li>Pin Reactions: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. </li>
+
+<li>Bot Mention: When the bot is mentioned '@Bot', it will pick a random quote from the redirected pin channel and reply with that quote. </li>
+
+<li>8-Ball: The bot is given whatever responses to use for command !8. </li>
 
 <li>Link Redirect: Moves all links to the designated channel for organization.</li>
