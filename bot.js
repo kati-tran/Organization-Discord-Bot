@@ -239,7 +239,6 @@ client.on('message', msg => {
     }
 
     if (msg.isMentioned(client.user)){
-    	msg.channel.send('Testing')
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
 	  			const boi = `${collected.random(1)}`
@@ -256,8 +255,17 @@ client.on('message', msg => {
 	  				}
 	  			}
 	  			console.log(rusername)
-	  			var newStr = boi.substring(rusername,boi.length-2)
-	  			//console.log(collected.random(1))
+	  			msg.delete();
+	  			if(boi[boi.length-1] === '-')
+	  			{
+		  			var newStr = boi.substring(rusername,boi.length-2)
+		  			msg.channel.send(newStr)
+	  			}
+	  			else
+	  			{
+	  				var newStr = boi.substring(rusername,boi.length)
+	  				msg.channel.send(newStr)
+	  			}
 	  			console.log(newStr)
 	  	  	})
 			.catch(err => console.log(err))
