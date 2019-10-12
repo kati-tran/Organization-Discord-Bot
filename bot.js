@@ -272,6 +272,16 @@ client.on('message', msg => {
 			.catch(err => console.log(err))
     }
 
+    if(msg.content === '!8ball' && msg.author != client.user){
+    	msg.delete()
+    	msg.guild.channels.find(ch => ch.name === '8-ball').fetchMessages({limit: 100})
+    		.then(collected =>{
+    			const choice = `${collected.random(1)}`
+    			msg.channel.send(choice)
+    		})
+    		.catch(err => console.log(err))
+    }
+
 });
 
 
