@@ -167,6 +167,7 @@ client.on('message', msg => {
     	 \n\n**!da**: Used before a link to prevent the link from being redirected to the designated channel. \
     	 \n\n**__Functionality__** \
     	 \n\n**Pin Reactions**: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. \
+    	 \n\n**Bot Mention**: When the bot is mentioned '@Bot', it will pick a random quote from the redirected pin channel and reply with that quote. \
     	 \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
