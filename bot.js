@@ -243,7 +243,14 @@ client.on('message', msg => {
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
 	  			const boi = `${collected.random(1)}`
-	  			var newStr = boi.substr(0,boi.length-2)
+	  			rusername = 0;
+	  			for(var i = 0; i < boi.length; i++)
+	  			{
+	  				if(boi[i] === ':'){
+	  					rusername = i;
+	  				}
+	  			}
+	  			var newStr = boi.substr(i,boi.length-2)
 	  			//console.log(collected.random(1))
 	  			console.log(newStr)
 	  	  	})
