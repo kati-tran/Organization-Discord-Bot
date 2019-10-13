@@ -273,11 +273,6 @@ client.on('message', msg => {
 	  				msg.channel.send(newStr)
 	  			}
 	  			console.log(newStr)
-
-	  			if(activity_counter === send_num){
-	  				activity_counter = 0;
-	  				send_num = Math.floor(Math.random() * 100) + 1;
-	  			}
 	  	  	})
 			.catch(err => console.log(err))
     }
@@ -292,6 +287,11 @@ client.on('message', msg => {
     		.catch(err => console.log(err))
     }
 
+
+	if(activity_counter === send_num){
+		activity_counter = 0;
+		send_num = Math.floor(Math.random() * 100) + 1;
+	}
     activity_counter += 1;
     console.log(activity_counter)
     console.log(send_num)
