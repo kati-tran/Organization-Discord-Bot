@@ -293,6 +293,8 @@ client.on('message', msg => {
     }
 
     activity_counter += 1;
+    console.log(activity_counter)
+    console.log(send_num)
 
 });
 
