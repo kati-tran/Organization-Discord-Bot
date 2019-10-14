@@ -39,7 +39,7 @@ var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
 var activity_counter = 0;
-var send_num = Math.random() * (500 - 100) + 100;
+var send_num = Math.floor(random(100,500));
 
 function isPosNumeric(value) {
     return /^\d+$/.test(value);
@@ -295,7 +295,7 @@ client.on('message', msg => {
 
 	if(activity_counter === send_num){
 		activity_counter = 0;
-		send_num = Math.random() * (500 - 100) + 100;;
+		send_num = Math.floor(random(100,500));
 	}
     activity_counter += 1;
     console.log(activity_counter)
