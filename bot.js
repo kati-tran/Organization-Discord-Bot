@@ -260,8 +260,12 @@ client.on('message', msg => {
 	  					break;
 	  				}
 	  			}
+
+	  			if(msg.isMentioned(client.user)){
+	  				msg.delete();
+	  			}
+
 	  			console.log(rusername)
-	  			msg.delete();
 	  			if(boi[boi.length-1] === '-')
 	  			{
 		  			var newStr = boi.substring(rusername,boi.length-2)
@@ -273,6 +277,7 @@ client.on('message', msg => {
 	  				msg.channel.send(newStr)
 	  			}
 	  			console.log(newStr)
+
 	  	  	})
 			.catch(err => console.log(err))
     }
