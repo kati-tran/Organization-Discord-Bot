@@ -304,8 +304,6 @@ client.on('message', msg => {
 		send_num = Math.floor(Math.random()*(500-75+1)+75 );
 	}
     activity_counter += 1;
-    console.log(activity_counter)
-    console.log(send_num)
 
 =======
 >>>>>>> parent of a9a8842... Random messages
