@@ -38,11 +38,6 @@ function onReady() {
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
-<<<<<<< HEAD
-var activity_counter = 0;
-var send_num = Math.floor(Math.random()*(500-75+1)+75 );
-=======
->>>>>>> parent of a9a8842... Random messages
 
 function isPosNumeric(value) {
     return /^\d+$/.test(value);
@@ -279,10 +274,6 @@ client.on('message', msg => {
 	  				msg.channel.send(newStr)
 	  			}
 	  			console.log(newStr)
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of a9a8842... Random messages
 	  	  	})
 			.catch(err => console.log(err))
     }
@@ -296,18 +287,6 @@ client.on('message', msg => {
     		})
     		.catch(err => console.log(err))
     }
-
-<<<<<<< HEAD
-
-	if(activity_counter === send_num){
-		activity_counter = 0;
-		send_num = Math.floor(Math.random()*(500-75+1)+75 );
-	}
-    activity_counter += 1;
-
-=======
->>>>>>> parent of a9a8842... Random messages
-});
 
 
 //client.login(auth.token);
