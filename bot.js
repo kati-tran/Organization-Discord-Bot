@@ -38,8 +38,11 @@ function onReady() {
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
+<<<<<<< HEAD
 var activity_counter = 0;
 var send_num = Math.floor(Math.random()*(500-75+1)+75 );
+=======
+>>>>>>> parent of a9a8842... Random messages
 
 function isPosNumeric(value) {
     return /^\d+$/.test(value);
@@ -172,7 +175,6 @@ client.on('message', msg => {
     	 \n\n**Pin Reactions**: When a message is reacted to with the 📌 emoji, the message is redirected to the designated channel. \
     	 \n\n**Bot Mention**: When the bot is mentioned '@Bot', it will pick a random quote from the redirected pin channel and reply with that quote. \
     	 \n\n**8-Ball**: The bot is given whatever responses to use for command !8. \
-    	 \n\n**Random Message**: The bot will send a random message from the saved messages when activity is high. \
     	 \n\n**Link Redirect**: Moves all links to the designated channel for organization.")
     }
 
@@ -244,7 +246,7 @@ client.on('message', msg => {
 
     }
 
-    if (msg.isMentioned(client.user) || activity_counter === send_num){
+    if (msg.isMentioned(client.user)){
 	  	hall_of_fame.fetchMessages({limit: 100})
 	  		.then(collected =>{
 	  			const boi = `${collected.random(1)}`
@@ -277,7 +279,10 @@ client.on('message', msg => {
 	  				msg.channel.send(newStr)
 	  			}
 	  			console.log(newStr)
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a9a8842... Random messages
 	  	  	})
 			.catch(err => console.log(err))
     }
@@ -292,6 +297,7 @@ client.on('message', msg => {
     		.catch(err => console.log(err))
     }
 
+<<<<<<< HEAD
 
 	if(activity_counter === send_num){
 		activity_counter = 0;
@@ -301,6 +307,8 @@ client.on('message', msg => {
     console.log(activity_counter)
     console.log(send_num)
 
+=======
+>>>>>>> parent of a9a8842... Random messages
 });
 
 
