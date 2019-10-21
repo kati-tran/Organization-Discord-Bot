@@ -282,10 +282,13 @@ client.on('message', msg => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of a9a8842... Random messages
 =======
+=======
+>>>>>>> parent of 590cf65... Update bot.js
 =======
 >>>>>>> parent of 590cf65... Update bot.js
 
@@ -294,6 +297,9 @@ client.on('message', msg => {
 	  				send_num = Math.floor(Math.random() * 100) + 1;
 	  			}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 590cf65... Update bot.js
+=======
 >>>>>>> parent of 590cf65... Update bot.js
 =======
 >>>>>>> parent of 590cf65... Update bot.js
@@ -314,11 +320,14 @@ client.on('message', msg => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	if(activity_counter === send_num){
 		activity_counter = 0;
 		send_num = Math.floor(Math.random()*(500-75+1)+75 );
 	}
+=======
+>>>>>>> parent of 590cf65... Update bot.js
 =======
 >>>>>>> parent of 590cf65... Update bot.js
 =======
