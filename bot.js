@@ -280,9 +280,17 @@ client.on('message', msg => {
 	  			}
 	  			console.log(newStr)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of a9a8842... Random messages
+=======
+
+	  			if(activity_counter === send_num){
+	  				activity_counter = 0;
+	  				send_num = Math.floor(Math.random() * 100) + 1;
+	  			}
+>>>>>>> parent of 590cf65... Update bot.js
 	  	  	})
 			.catch(err => console.log(err))
     }
@@ -298,11 +306,14 @@ client.on('message', msg => {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	if(activity_counter === send_num){
 		activity_counter = 0;
 		send_num = Math.floor(Math.random()*(500-75+1)+75 );
 	}
+=======
+>>>>>>> parent of 590cf65... Update bot.js
     activity_counter += 1;
 
 =======
