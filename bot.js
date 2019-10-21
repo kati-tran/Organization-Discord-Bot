@@ -38,11 +38,6 @@ function onReady() {
 var blockedchannels = ['587909626087866390','563202381202849832']
 var blockedcommands = ['!da', 'gif']
 var saved_quotes = {};
-<<<<<<< HEAD
-var activity_counter = 0;
-var send_num = Math.floor(Math.random()*(500-75+1)+75 );
-=======
->>>>>>> parent of a9a8842... Random messages
 
 function isPosNumeric(value) {
     return /^\d+$/.test(value);
@@ -279,30 +274,11 @@ client.on('message', msg => {
 	  				msg.channel.send(newStr)
 	  			}
 	  			console.log(newStr)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of a9a8842... Random messages
-=======
-=======
->>>>>>> parent of 590cf65... Update bot.js
-=======
->>>>>>> parent of 590cf65... Update bot.js
 
 	  			if(activity_counter === send_num){
 	  				activity_counter = 0;
 	  				send_num = Math.floor(Math.random() * 100) + 1;
 	  			}
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 590cf65... Update bot.js
-=======
->>>>>>> parent of 590cf65... Update bot.js
-=======
->>>>>>> parent of 590cf65... Update bot.js
 	  	  	})
 			.catch(err => console.log(err))
     }
@@ -317,25 +293,6 @@ client.on('message', msg => {
     		.catch(err => console.log(err))
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-	if(activity_counter === send_num){
-		activity_counter = 0;
-		send_num = Math.floor(Math.random()*(500-75+1)+75 );
-	}
-=======
->>>>>>> parent of 590cf65... Update bot.js
-=======
->>>>>>> parent of 590cf65... Update bot.js
-=======
->>>>>>> parent of 590cf65... Update bot.js
-    activity_counter += 1;
-
-=======
->>>>>>> parent of a9a8842... Random messages
 });
 
 
