@@ -1,5 +1,5 @@
-# Covenant Bot
-Bot that's mainly used in team Covenant's discord server for organization (and fun).
+# Group Bot
+Bot that's mainly used in a group discord server for organization (and fun).
 
 Currently contains:
 <h1>Commands</h1> 
