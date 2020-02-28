@@ -83,6 +83,7 @@ client.on('messageReactionAdd', onReaction);
 client.on('message', msg => {
 
   const bot_channel = msg.guild.channels.find(ch => ch.name === 'bots');
+  const link_channel = msg.guild.channels.find(ch => ch.name === 'links');
   const hall_of_fame = msg.guild.channels.find(ch => ch.name === 'hall-of-fame');
   const valid_command = msg.content.split(' ').length;
   const first_word = msg.content.split(' ')[0]
@@ -90,7 +91,7 @@ client.on('message', msg => {
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
     && !blockedchannels.includes(msg.channel.id)) {
-    bot.channel.send("**"+msg.author.username+"**" + " linked: " + msg.content);}
+    link_channel.send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
   if (first_word == '!purge' && valid_command > 1 && msg.author != client.user){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
