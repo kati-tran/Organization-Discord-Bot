@@ -90,7 +90,7 @@ client.on('message', msg => {
   if (msg.content.includes('http') && msg.author != client.user 
     && !msg.content.includes('!da') && !msg.content.includes('gif') 
     && !blockedchannels.includes(msg.channel.id)) {
-    client.channels.get('563202381202849832').send("**"+msg.author.username+"**" + " linked: " + msg.content);}
+    bot.channel.send("**"+msg.author.username+"**" + " linked: " + msg.content);}
 
   if (first_word == '!purge' && valid_command > 1 && msg.author != client.user){
   	var delete_message = msg.content.substr(msg.content.indexOf(" ")+1)
