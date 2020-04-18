@@ -4,7 +4,7 @@ Bot that's mainly used in a group discord server for organization (and fun).
 Currently contains:
 <h1>Commands</h1> 
 
-<li>!covenant: Brings up the help menu to see available commands/usability.</li>
+<li>!kaiser: Brings up the help menu to see available commands/usability.</li>
 
 <li>!quote: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!'</li>
 
