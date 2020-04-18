@@ -285,6 +285,9 @@ client.on('message', msg => {
     }
 
     if(first_word === '!8' && msg.author != client.user){
+    	if(valid_command === 1){
+    		msg.delete();
+    	}
     	msg.guild.channels.find(ch => ch.name === '8-ball').fetchMessages({limit: 100})
     		.then(collected =>{
     			const choice = `${collected.random(1)}`
