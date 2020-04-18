@@ -157,9 +157,9 @@ client.on('message', msg => {
       }
     }
 
-    if(msg.content === '!covenant' && msg.author != client.user){
+    if(msg.content === '!kaiser' && msg.author != client.user){
     	msg.channel.send("**__Commands__** \
-    	 \n\n**!covenant**: Brings up the help menu to see available commands/usability. \
+    	 \n\n**!kaiser**: Brings up the help menu to see available commands/usability. \
     	 \n\n**!quote**: Save a personal 'quote' to be used at any time. Requires a message to follow the command to work. Example: '!quote Hello World!' \
     	 \n\n**!qs**: Use the quote that was saved using !quote. Requires a quote to be saved before use. \
     	 \n\n**!hof**: Sends memorable quotes to a designated channel. Bypasses the Discord 50 pins rule. Example: '!hof @User [spoken quote here]' \
@@ -284,8 +284,7 @@ client.on('message', msg => {
 			.catch(err => console.log(err))
     }
 
-    if(msg.content === '!8' && msg.author != client.user){
-    	msg.delete()
+    if(first_word === '!8' && msg.author != client.user){
     	msg.guild.channels.find(ch => ch.name === '8-ball').fetchMessages({limit: 100})
     		.then(collected =>{
     			const choice = `${collected.random(1)}`
