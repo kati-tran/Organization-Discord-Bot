@@ -296,12 +296,6 @@ client.on('message', msg => {
     		.catch(err => console.log(err))
     }
 
-  if (msg.content.startsWith ("!smile")) {
-          number = 18;
-          imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-          msg.channel.send ("./images/" + imageNumber + ".png");
-      }
-
 
 });
 
